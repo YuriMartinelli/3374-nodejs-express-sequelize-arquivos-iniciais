@@ -34,11 +34,19 @@ pessoaRouter.get("/pessoas/:estudante_id/matriculas", (req, res) =>
 );
 
 pessoaRouter.get("/pessoas/:estudante_id/matriculas/:id", (req, res) =>
-  pessoaController.pegaUm(req, res)
+  matriculaController.pegaUm(req, res)
 );
 
 pessoaRouter.post("/pessoas/:estudante_id/matriculas", (req, res) =>
   matriculaController.criaNovo(req, res)
+);
+
+pessoaRouter.put("/pessoas/:estudante_id/matriculas/:id", (req, res) =>
+  matriculaController.atualiza(req, res)
+);
+
+pessoaRouter.delete("/pessoas/:estudante_id/matriculas/:id", (req, res) =>
+  matriculaController.exclui(req, res)
 );
 
 module.exports = pessoaRouter;

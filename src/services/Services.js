@@ -5,8 +5,8 @@ class Services {
     this.model = nomeModel;
   }
 
-  async getAll() {
-    return dataSource[this.model].findAll();
+  async getAll(where = {}) {
+    return dataSource[this.model].findAll({ where: { ...where } });
   }
 
   async pegaRegistrosScope(scope) {
