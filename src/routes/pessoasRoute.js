@@ -20,6 +20,9 @@ pessoaRouter.put("/pessoas/:id", (req, res) =>
 pessoaRouter.delete("/pessoas", (req, res) =>
   pessoaController.exciui(req, res)
 );
+pessoaRouter.get("/pessoas/:estudanteId/matriculas", (req, res) =>
+  pessoaController.pegaMatriculas(req, res)
+);
 pessoaRouter.post("/pessoas/:estudanteId/matriculas", (req, res) =>
   matriculaController.criaNovo(req, res)
 );

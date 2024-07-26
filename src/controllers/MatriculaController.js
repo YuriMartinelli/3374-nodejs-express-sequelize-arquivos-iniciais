@@ -10,3 +10,4 @@ class MatriculaController extends Controller {
 }
 
 module.exports = MatriculaController;
+ 
