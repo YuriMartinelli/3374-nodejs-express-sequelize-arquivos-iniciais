@@ -26,11 +26,20 @@ pessoaRouter.delete("/pessoas/:id", (req, res) =>
   pessoaController.exclui(req, res)
 );
 
+pessoaRouter.get("/pessoas/:estudante_id/matriculas", (req, res) =>
+  pessoaController.pegaMatriculasAtivas(req, res)
+);
+
 pessoaRouter.get("/pessoas/:estudante_id/matriculas/todos", (req, res) =>
   pessoaController.pegaTodasMatriculas(req, res)
 );
-pessoaRouter.get("/pessoas/:estudante_id/matriculas", (req, res) =>
-  pessoaController.pegaMatriculasAtivas(req, res)
+
+pessoaRouter.get("/pessoas/:estudante_id/matriculas/confirmadas", (req, res) =>
+  matriculaController.pegaMatriculasPorEstudante(req, res)
+);
+
+pessoaRouter.get("/pessoas/matriculas/lotadas", (req, res) =>
+  matriculaController.pegaCursosLotados(req, res)
 );
 
 pessoaRouter.get("/pessoas/:estudante_id/matriculas/:id", (req, res) =>
