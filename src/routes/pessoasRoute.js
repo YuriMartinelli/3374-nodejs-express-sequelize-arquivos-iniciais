@@ -8,6 +8,11 @@ const matriculaController = new MatriculaController();
 const pessoaRouter = Router();
 
 pessoaRouter.get("/pessoas", (req, res) => pessoaController.getAll(req, res));
+
+pessoaRouter.get("/pessoas/todos", (req, res) =>
+  pessoaController.pegaTodasPessoas(req, res)
+);
+
 pessoaRouter.get("/pessoas/:id", (req, res) =>
   pessoaController.pegaUmPorId(req, res)
 );
@@ -17,13 +22,22 @@ pessoaRouter.post("/pessoas", (req, res) =>
 pessoaRouter.put("/pessoas/:id", (req, res) =>
   pessoaController.atualiza(req, res)
 );
-pessoaRouter.delete("/pessoas", (req, res) =>
-  pessoaController.exciui(req, res)
+pessoaRouter.delete("/pessoas/:id", (req, res) =>
+  pessoaController.exclui(req, res)
 );
-pessoaRouter.get("/pessoas/:estudanteId/matriculas", (req, res) =>
-  pessoaController.pegaMatriculas(req, res)
+
+pessoaRouter.get("/pessoas/:estudante_id/matriculas/todos", (req, res) =>
+  pessoaController.pegaTodasMatriculas(req, res)
 );
-pessoaRouter.post("/pessoas/:estudanteId/matriculas", (req, res) =>
+pessoaRouter.get("/pessoas/:estudante_id/matriculas", (req, res) =>
+  pessoaController.pegaMatriculasAtivas(req, res)
+);
+
+pessoaRouter.get("/pessoas/:estudante_id/matriculas/:id", (req, res) =>
+  pessoaController.pegaUm(req, res)
+);
+
+pessoaRouter.post("/pessoas/:estudante_id/matriculas", (req, res) =>
   matriculaController.criaNovo(req, res)
 );
 
